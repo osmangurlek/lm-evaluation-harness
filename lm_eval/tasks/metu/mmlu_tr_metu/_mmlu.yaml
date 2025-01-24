@@ -1,0 +1,13 @@
+group: mmlu
+task:
+  - mmlu_biyoloji_tr
+  - mmlu_cografya_tr
+  - mmlu_iktisat_tr
+  - mmlu_tarih_tr
+  - mmlu_uluslar_arasi_iliskiler_tr
+aggregate_metric_list:
+  - aggregation: mean
+    metric: exact_match
+    weight_by_size: True
+metadata:
+  version: 0
