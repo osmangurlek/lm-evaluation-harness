@@ -4,16 +4,12 @@ dataset_name: default
 test_split: train
 fewshot_config:
   sampler: first_n
-  samples:
-    - {"Premise": "Dostlar ve komşular yas tutanların evini ziyaret ettiler", "Soru": "Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?", "Seçenekler": ["yas tutanlara destek olup acıyı dağıttılar", "karınlarını doyurdular"], "Cevap": "Seçenek 1"}
-    - {"Premise": "Bir anne, çocuklarıyla pikniğe gitmek için hazırlık yapıyor", "Soru": "Seçeneklerden hangisi bir sonuç olabilir?", "Seçenekler": ["piknik sepetini doldurdular", "çimlerin üstüne uzandılar"], "Cevap": "Seçenek 1"}
-    - {"Premise": "Adam yağmura rağmen dışarı çıkıp koştu", "Soru": "Seçeneklerden hangisi bir sonuç olabilir?", "Seçenekler": ["koşu ayakkabıları çamurlandı", "arkadaşlarını aradı"], "Cevap": "Seçenek 1"}
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{main_question}}"
 doc_to_text: "Premise: {[context}}\nSoru: {{main_question.strip()}}\nSeçenekler: {{choices}}\nCevap: "
 doc_to_choice: ["1", "2"]
-doc_to_target: "{{['1', '2'].index(correct_answer_index)}}"
+doc_to_target: "{{[1, 2].index(correct_answer_index)}}"
 metric_list:
   - metric: acc
     aggregation: mean
