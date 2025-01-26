@@ -2,8 +2,6 @@ task: metu_commonsense
 dataset_path: metunlp/commonsense_reasoning
 dataset_name: default
 test_split: train
-fewshot_config:
-  sampler: first_n
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{main_question}}"
