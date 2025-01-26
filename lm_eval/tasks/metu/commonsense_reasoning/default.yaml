@@ -7,7 +7,7 @@ fewshot_config:
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{main_question}}"
-doc_to_text: "Premise: {[context}}\nSoru: {{main_question.strip()}}\nSeçenekler: {{choices}}\nCevap: "
+doc_to_text: "Premise: {{context}}\nSoru: {{main_question.strip()}}\nSeçenekler: {{choices}}\nCevap: "
 doc_to_choice: ["1", "2"]
 doc_to_target: "{{[1, 2].index(correct_answer_index)}}"
 metric_list:
