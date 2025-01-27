@@ -1,5 +1,5 @@
 task: metu_commonsense
-dataset_path: metunlp/complex_alex
+dataset_path: metunlp/complex-ales
 dataset_name: default
 test_split: train
 fewshot_config:
