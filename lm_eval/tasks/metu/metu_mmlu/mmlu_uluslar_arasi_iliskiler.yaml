@@ -1,0 +1,14 @@
+task: metu_uluslar_arasi_iliskiler_tr
+dataset_path: metunlp/mmlu_uluslar_arasi_iliskiler_tr
+dataset_name: default
+test_split: train
+output_type: generate_until
+doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nE. {{choices[4]}}\nAnswer:"
+doc_to_choice: ["A", "B", "C", "D", "E"]
+doc_to_target: "{{['A', 'B', 'C', 'D', 'E'][answer]}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0

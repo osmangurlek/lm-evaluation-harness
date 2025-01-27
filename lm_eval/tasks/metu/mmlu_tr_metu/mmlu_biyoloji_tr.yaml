@@ -1,4 +1,0 @@
-description: "The following are multiple choice questions (with answers) about biyoloji"
-include: "_default_template_yaml"
-task: "mmlu_biyoloji_tr"
-task_alias: "biyoloji"

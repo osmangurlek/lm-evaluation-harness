@@ -5,9 +5,9 @@ test_split: train
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{question}}"
-doc_to_text: "P: {{narrative}}\nQ: {{question.strip()}}\nA: {{choices[0]}}\nB: {{choices[1]}}\nC: {{choices[2]}}\nD: {{choices[3]}}\nAnswer:"
-doc_to_choice: ["A", "B", "C", "D"]
-doc_to_target: "{{['A', 'B', 'C', 'D'].index(answer_choice)}}"
+doc_to_text: "P: {{narrative}}\nQ: {{question.strip()}}\nA: {{choices[0]}}\nB: {{choices[1]}}\nC: {{choices[2]}}\nD: {{choices[3]}}\nE: {{choices[4]}}\nAnswer:"
+doc_to_choice: ["A", "B", "C", "D", "E"]
+doc_to_target: "{{['A', 'B', 'C', 'D', 'E'].index(answer_choice)}}"
 metric_list:
   - metric: acc
     aggregation: mean

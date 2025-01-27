@@ -1,4 +1,0 @@
-description: "The following are multiple choice questions (with answers) about iktisat"
-include: "_default_template_yaml"
-task: "mmlu_iktisat_tr"
-task_alias: "iktisat"
