@@ -1,13 +1,26 @@
 task: metu_math_tr
 dataset_path: metunlp/math_tr
-process_docs: !function utils.process_docs
 dataset_name: default
 output_type: generate_until
-training_split: train
-test_split: test
-doc_to_text:  !function utils.doc_to_text
-process_results: !function utils.process_results
-doc_to_target: "{{answer if few_shot is undefined else solution}}"
+test_split: train
+fewshot_config:
+  sampler: first_n
+  samples:
+    - Question: "$P(x)=1-x+x^2-x^3+\\ldots+x^{18}-x^{19}$ polinomu verilsin. $Q(x)=P(x-1)$ şeklinde tanımlanan $Q$ polinomunda $x^2$ nin katsayısı kaçtır?"
+      Solution: "$$ P(x)=1-x+x^2-x^3+\\ldots+x^{18}-x^{19}=\\frac{1-x^{20}}{1+x}$$ olduğundan, istenilen katsayı $1-(y-1)^{20}$ polinomunun $y^3$ teriminin katsayısı olacaktır. Buna göre, cevap $\\boxed{1140}$ olur."
+    - Question: "YARIŞMA sözcüğünün harfleriyle, anlamlı veya anlamsız, iki kelimeden oluşan kaç cümle yazılabilir?"
+      Solution: "YARIŞMA sözcüğünün $\\frac{7!}{2!}$ tane farklı permütasyonu vardır. Bu permütasyonlardan her birini 6 farklı şekilde iki parçaya ayırarak iki kelimeden oluşan cümle elde edebiliriz. Buna göre cevap $\\boxed{15120}$ olur."
+    - Question: "$A B C D$ karesinin dışında bir $E$ noktası verilmiştir. $m(\\widehat{B E C})=90^{\\circ}, F \\in[C E],[A F] \\perp[C E],|A B|=25$ ve $|B E|=7$ olduğuna göre $|A F|$ kaç birimdir?"
+      Solution: "$\\angle B C E=\\alpha$ olsun. $A B C D$ kare olduğundan $|B C|=25$ ve $|A C|=25 \\sqrt{2}$ dir. Pisagor teoreminden $|C E|=24$ olur. $\\sin \\alpha=7 / 25$ ve $\\cos \\alpha=24 / 25$ tir. $|A F|=$ $|A C| \\cdot \\sin (45+\\alpha)=|A C| (\\sin \\alpha+\\cos \\alpha) / \\sqrt{2}=31$ olur. $\\boxed{31}$."
+description: >
+  Aşağıdaki matematik problemini verilen nihai cevap formatına uygun olacak şekilde çözün. Tüm adımları gösterdikten sonra, nihai cevabınızı sadece bir kez ve aşağıdaki kurallara uygun şekilde kutu içinde verin. Nihai Cevap için Uyulması Gereken Format Kuralları:
+  1. Nihai cevap, tek seferde \\boxed{...} içinde verilmeli.
+  2. Kesirler her zaman en sade halde verilmeli.
+  3. Çarpma işareti (*) kullanılmamalı.
+  4. Değişkenler alfabetik sıraya uyulmalı ve polinomlar azalan derece sırasına göre yazılmalı.
+doc_to_text: >
+  Problem: {{Question}}\n\nSolution:
+doc_to_target: "{{Final_Answer}}"
 generation_kwargs:
   until:
     - "Question:"
@@ -22,6 +35,3 @@ metadata:
   version: 1.0
 dataset_kwargs:
   trust_remote_code: true
-fewshot_config:
-  sampler: first_n
-  samples: !function utils.list_fewshot_samples

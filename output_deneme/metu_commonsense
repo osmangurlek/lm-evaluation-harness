@@ -1,0 +1,102 @@
+!!@@##@@!! -- Example 0
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?
+Seçenekler: Seçenek 1: kutsal bir günü temsil eder
+Seçenek 2: Eski İran takviminde Nevruz yılın ilk günüdür
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Büyük ateşler yakıldı
+Seçenek 2: Eski hasırlar yakılarak üzerlerinden atlanıldı
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: yas sürecini sonlandırdılar
+Seçenek 2:  yaslarını yaşadılar
+Cevap: 
+!!@@##@@!! -- Example 1
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: yas sürecini sonlandırdılar
+Seçenek 2:  yaslarını yaşadılar
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Büyük ateşler yakıldı
+Seçenek 2: Eski hasırlar yakılarak üzerlerinden atlanıldı
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?
+Seçenekler: Seçenek 1: kutsal bir günü temsil eder
+Seçenek 2: Eski İran takviminde Nevruz yılın ilk günüdür
+Cevap: 
+!!@@##@@!! -- Example 2
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: yas sürecini sonlandırdılar
+Seçenek 2:  yaslarını yaşadılar
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?
+Seçenekler: Seçenek 1: kutsal bir günü temsil eder
+Seçenek 2: Eski İran takviminde Nevruz yılın ilk günüdür
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Büyük ateşler yakıldı
+Seçenek 2: Eski hasırlar yakılarak üzerlerinden atlanıldı
+Cevap: 
+!!@@##@@!! -- Example 3
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: yas sürecini sonlandırdılar
+Seçenek 2:  yaslarını yaşadılar
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?
+Seçenekler: Seçenek 1: kutsal bir günü temsil eder
+Seçenek 2: Eski İran takviminde Nevruz yılın ilk günüdür
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Büyük ateşler yakıldı
+Seçenek 2: Eski hasırlar yakılarak üzerlerinden atlanıldı
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Öğlene doğru Duatepe'de büyük kazanlarda yemekler hazırlanır.
+Seçenek 2: Çocuklar hazırlanan yemekleri dağıtır
+Cevap: 
+!!@@##@@!! -- Example 4
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: yas sürecini sonlandırdılar
+Seçenek 2:  yaslarını yaşadılar
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?
+Seçenekler: Seçenek 1: kutsal bir günü temsil eder
+Seçenek 2: Eski İran takviminde Nevruz yılın ilk günüdür
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Büyük ateşler yakıldı
+Seçenek 2: Eski hasırlar yakılarak üzerlerinden atlanıldı
+Cevap:  2
+
+Premise: {[context}}
+Soru: Seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?
+Seçenekler: Seçenek 1: Semeni aşı komşulara dağıtıldı
+Seçenek 2: Semeni, Türkmenistan'da Nevruz Bayramı'na özel pişirilmektedir
+Cevap: 

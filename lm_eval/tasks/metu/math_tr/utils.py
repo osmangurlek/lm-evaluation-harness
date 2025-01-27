@@ -20,7 +20,10 @@ please install sympy via pip install lm-eval[math] or pip install -e .[math]",
 # taken from
 # https://github.com/wellecks/lm-evaluation-harness/blob/master/lm_eval/tasks/minerva_math.py
 def doc_to_text(doc: dict) -> str:
-    return "Question:" + "\n" + doc["Question"] + "\n\n" + "Solution:"
+    return (
+        f"{doc.get('few_shot_template', '')}\n\n"
+        f"Problem:\n{doc['Question']}\n\nSolution:"
+    )
 
 
 def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:
@@ -28,16 +31,15 @@ def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:
         out_doc = {
             "Question": doc["Question"],
             "Solution": doc["Solution"],
-            "answer": normalize_final_answer(
+            "Final_Answer": normalize_final_answer(
                 remove_boxed(last_boxed_only_string(doc["Solution"]))
             ),
         }
-        if getattr(doc, "few_shot", None) is not None:
-            out_doc["few_shot"] = True
+        if doc.get("few_shot"):
+            out_doc["few_shot_template"] = doc["few_shot_template"]
         return out_doc
 
     return dataset.map(_process_doc)
-
 
 def list_fewshot_samples() -> list[dict]:
     return [
