@@ -2,7 +2,7 @@ task: metu_lise_biyoloji
 dataset_path: metunlp/mmlu_lise_biyoloji
 dataset_name: default
 test_split: train
-output_type: generate_until
+output_type: multiple_choice
 doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nE. {{choices[4]}}\nAnswer:"
 doc_to_choice: ["A", "B", "C", "D", "E"]
 doc_to_target: "{{answer}}"
