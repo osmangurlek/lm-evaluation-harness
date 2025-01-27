@@ -1,14 +1,24 @@
 task: metu_pos_tag
 dataset_path: metunlp/tr_pos
 dataset_name: default
+# Split ayarları
 test_split: train
-output_type: generate_until
-doc_to_text: "Cümle: {{sentence}}\nTokens:"
-doc_to_target: "{{tokens}}"
+# Few-shot örnekleme (eğer kullanılacaksa)
+fewshot_split: null
+# Prompt yapılandırmaları
+description: "Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."
+doc_to_text: |
+  "{{sentence}}"
+doc_to_target: |
+  {"tokens": [
+  {% for token in tokens %}
+    {"text": "{{ token.text }}", "pos": "{{ token.pos }}"}{% if not loop.last %}, {% endif %}
+  {% endfor %}
+  ]}
 metric_list:
   - metric: exact_match
     aggregation: mean
     higher_is_better: true
+output_type: generate_until
 metadata:
   version: 1.0
-  description: "Verilen bir cümlenin dilbilgisel analizini yapar, her kelimenin POS (Part-of-Speech) etiketini döndürür."

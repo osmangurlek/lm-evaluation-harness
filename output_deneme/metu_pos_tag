@@ -1,0 +1,15 @@
+!!@@##@@!! -- Example 0
+Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."Güncelleme Tarihi: Ocak 09, 2025 15:03 Yerel medyadaki haberlere göre yetkililer, merkez üssü Tibet Özerk Bölgesi'nin Shigatse ilinin Tingri ilçesi olan depremin ardından gelen artçı sarsıntılara ilişkin açıklamada bulundu."
+
+!!@@##@@!! -- Example 1
+Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."Söz konusu depremin ardından 1200'den fazla artçı sarsıntı yaşandığını ifade eden yetkililer, en şiddetli sarsıntının 4,4 büyüklüğünde olduğunu kaydetti."
+
+!!@@##@@!! -- Example 2
+Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."Yetkililer, depremin 61 binden fazla kişiyi yerinden ettiği bilgisini de paylaştı."
+
+!!@@##@@!! -- Example 3
+Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."6,8 büyüklüğünde deprem, Çin'in Tibet Özerk Bölgesi'nde 7 Ocak'ta meydana gelen 6,8 büyüklüğündeki depremde 126 kişi hayatını kaybetmiş, 188 kişi yaralanmıştı."
+
+!!@@##@@!! -- Example 4
+Bir dilbilimci gibi hareket ederek, verilen cümlenin dilbilgisel analizini yapın. Kelimelerin POS etiketlerini belirleyin ve sonuçları belirtilen formatta döndürün."Yerin 10 kilometre derinliğinde, yerel saatle 09.05'te meydana gelen depremde 3 binden fazla yapı çeşitli seviyelerde hasar görmüştü."
+
