@@ -1,7 +1,7 @@
 task: metu_math_tr
 dataset_path: metunlp/math_tr
 process_docs: !function utils.process_docs
-dataset_name: math
+dataset_name: default
 output_type: generate_until
 training_split: train
 test_split: test
