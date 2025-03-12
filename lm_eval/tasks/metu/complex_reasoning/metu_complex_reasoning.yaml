@@ -10,8 +10,8 @@ Paragraf: {{narrative}}\n
 Soru: {{question.strip()}}\n
 Seçenekler: {{choices}}\n
 Cevap:"
-doc_to_choice: ["1", "2", "3", "4", "5"]
-doc_to_target: "{{[1, 2, 3, 4, 5].index(answer_index)}}"
+doc_to_choice: ["0", "1", "2", "3", "4"]
+doc_to_target: "{{[0, 1, 2, 3, 4].index(answer_index)}}"
 metric_list:
   - metric: acc
     aggregation: mean
