@@ -1,0 +1,17 @@
+tag: metummlu
+task: null
+dataset_path: metunlp/mmlu_tr
+dataset_name: MetuMMLU
+test_split: train
+output_type: multiple_choice
+doc_to_text: "Soru: {{ datasets__dataset1__question.strip() }}\nA. {{ datasets__dataset1__choices__001 }}\nB. {{ datasets__dataset1__choices__002 }}\nC. {{ datasets__dataset1__choices__003 }}\nD. {{ datasets__dataset1__choices__004 }}\nE. {{ datasets__dataset1__choices__005 }}\nCevap:"
+doc_to_target: "{{ datasets__dataset1__answer.strip() }}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0
