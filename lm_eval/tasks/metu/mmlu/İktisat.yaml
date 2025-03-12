@@ -1,0 +1,3 @@
+include: _metummlu_default_yaml
+task: metummlu_iktisat
+dataset_name: İktisat

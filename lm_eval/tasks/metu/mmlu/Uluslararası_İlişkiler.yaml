@@ -1,0 +1,3 @@
+include: _metummlu_default_yaml
+task: metummlu_uluslararası_ilişkiler
+dataset_name: Uluslararası_İlişkiler

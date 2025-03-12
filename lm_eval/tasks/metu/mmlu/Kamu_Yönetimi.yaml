@@ -1,0 +1,3 @@
+include: _metummlu_default_yaml
+task: metummlu_kamu_yönetimi
+dataset_name: Kamu_Yönetimi

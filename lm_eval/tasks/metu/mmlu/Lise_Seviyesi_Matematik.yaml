@@ -1,0 +1,3 @@
+include: _metummlu_default_yaml
+task: metummlu_lise_seviyesi_matematik
+dataset_name: Lise_Seviyesi_Matematik
