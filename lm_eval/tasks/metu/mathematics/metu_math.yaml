@@ -1,0 +1,54 @@
+dataset_name: default
+dataset_path: metunlp/math_tr
+doc_to_target: '{{answer.split(''####'')[-1].strip() if answer is defined else solution}}'
+doc_to_text: "Given the following problem, reason and give a final answer to the problem.\nProblem: {{question}}\nYour response should end with \"The final answer is [answer]\" where [answer] is the response to the problem.\n"
+fewshot_config:
+  sampler: first_n
+  samples:
+    - question: "$2^{22!}-1$ sayısını bölmeyen en küçük tek pozitif tam sayının rakamları toplamı kaçtır?"
+      solution: "Verilen sayıyı bölmeyen en küçük tek pozitif tam sayı $p^a$ formunda olmalı. Euler teoreminden dolayı $(p-1) p^{a-1} \\mid 22$ ! ise, $p^a \\mid 2^{22!}-1$ olur. 23 'ten büyük olmayan tek sayılar bariz şekilde bu sayıyı böler. $25^{\\prime}$ 'ten 45'e kadar olan tek sayıların da bu sayıyı böldüğü kolayca görülür. Şimdi 47'nin bu sayıyı bölmediğini gösterelim. Farzedelim ki bölsün. Fermat teoreminden $2^{46} \\equiv 1(\\bmod 47)$ olduğunu biliyoruz. Wilson teoreminden dolayı da $22!\\equiv-1(\\bmod 23)$ olur. O halde $22!=46 k+22$ formundadır. O halde $2^{22} \\equiv 1(\\bmod 47)$ olur ve buradan da $2^{44} \\equiv 1(\\bmod 47)$ ve $2^2 \\equiv 1$ $(\\bmod 47)$ gelir, çelişki. Demek ki istenen sayı 47 'dir."
+    - question: "$n^2+1$ 'in 269 ile tam bölünmesini sağlayan en küçük $n$ pozitif tam sayısının rakamları toplamı kaçtır?"
+      solution: "$269 \\equiv 1(\\bmod 4)$ bir asal sayıdır. Kolayca $10^2+13^2=269$ olduğu görülür. Buradan $10 \\cdot 27 \\equiv 1(\\bmod 269)$ ve $13 \\cdot 27=351 \\equiv 82$ $(\\bmod 269)$ olduğu için $82^2+1 \\equiv 0(\\bmod 269)$ elde edilir. 269 asal olduğu için 269| $n^2-82^2$ ancak ve ancak $269 \\mid n-82$ veya $269 \\mid 82+n$ olduğundan, şartı sağlayan en küçük pozitif tam sayı 82'dir. Dolayısıyla cevap 10'dur."
+    - question: "$N$ pozitif tam sayısının 1 dışındaki en küçük tek pozitif böleni $d$, en büyük tek pozitif böleni ise $D$ olsun. $N=15 D+11 d$ olmasını sağlayan $N$ pozitif tam sayılarının toplamı kaçtır?"
+      solution: "Cevap: 4576. $\\frac{N}{D}$ sayısı 2'nin bir tam kuvvetidir. Diğer taraftan $$ 15<\\frac{15 D+11 d}{D} \\leq 26 $$ olduğuna göre, $15 D+11 d=16 D$ ve buradan da $D=11 d$ gelir. $d$ sayısı $N$ 'nin en küçük tek asal bölenidir ve dolayısıyla $d=3,5,7,11$ olabilir. Buna göre şartı sağlayan $N$ sayıları $16 \\cdot 11 \\cdot 3,16 \\cdot 11 \\cdot 5,16 \\cdot 11 \\cdot 7$ ve $16 \\cdot 11^2$ 'dir. Bu sayıların toplamı da $16 \\cdot 11(3+5+7+11)=4576$ 'dır."
+filter_list:
+  - filter:
+      - function: regex
+        group_select: -1
+        regex_pattern: "The final answer is ((-?[$0-9.,]{2,})|(-?[0-9]+))"
+      - function: take_first
+    name: strict-match
+  - filter:
+      - function: regex
+        group_select: -1
+        regex_pattern: "(-?[$0-9.,]{2,})|(-?[0-9]+)"
+      - function: take_first
+    name: flexible-extract
+generation_kwargs:
+  do_sample: false
+  until:
+    - '<|eot_id|>'
+    - '<|start_header_id|>user<|end_header_id|>'
+    - 'Q:'
+    - '</s>'
+    - '<|im_end|>'
+tag:
+  - chain_of_thought
+metadata:
+  version: 0.0
+metric_list:
+  - aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: false
+    metric: exact_match
+    regexes_to_ignore:
+      - ','
+      - '\$'
+      - '(?s).*#### '
+      - '\.$'
+num_fewshot: 3
+output_type: generate_until
+repeats: 1
+task: metu_math_tr
+test_split: train
