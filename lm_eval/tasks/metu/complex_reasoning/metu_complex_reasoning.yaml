@@ -5,9 +5,13 @@ test_split: train
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{question}}"
-doc_to_text: "Q: {{question.strip()}}\nChoices: {{choices}}\nAnswer:"
+doc_to_text: "Verdiğim paragrafa göre soruları cevaplayın.\n
+Paragraf: {{narrative}}\n
+Soru: {{question.strip()}}\n
+Seçenekler: {{choices}}\n
+Cevap:"
 doc_to_choice: ["1", "2", "3", "4", "5"]
-doc_to_target: "{{answer_index}}"
+doc_to_target: "{{[1, 2, 3, 4, 5].index(answer_index)}}"
 metric_list:
   - metric: acc
     aggregation: mean

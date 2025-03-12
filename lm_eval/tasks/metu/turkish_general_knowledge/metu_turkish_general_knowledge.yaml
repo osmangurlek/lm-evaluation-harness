@@ -7,7 +7,7 @@ should_decontaminate: true
 doc_to_decontamination_query: "{{question}}"
 doc_to_text: "Q: {{question.strip()}}\nChoices: {{choices}}\nAnswer:"
 doc_to_choice: ["1", "2", "3", "4"]
-doc_to_target: "{{answer}}"
+doc_to_target: "{{[1, 2, 3, 4].index(answer)}}"
 metric_list:
   - metric: acc
     aggregation: mean

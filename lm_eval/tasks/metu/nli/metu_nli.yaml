@@ -3,12 +3,21 @@ dataset_path: metunlp/nli_tr
 dataset_name: default
 output_type: multiple_choice
 test_split: train
-doc_to_text: 'Cümle-1:{{premise}} Cümle-2:{{hypothesis}} cümleler arasındaki ilişki entailment (bir cümle diğerini ima eder), neutral (cümleler birbirini ima etmez ve çelişmez) veya contradiction (cümleler birbirleriyle çelişir) olarak karakterize edilebilir. Bu ilişkilerden hangisi olduğunu söyleyin.'
-doc_to_target: "{{label}}"
+doc_to_text: "
+Aşağıdaki cümleler arasındaki ilişki “entailment” (bir cümle diğerini ima eder), 
+“neutral (cümleler birbirini ima etmez ve çelişmez) veya 
+“contradiction (cümleler birbirleriyle çelişir) olarak karakterize edilebilir. 
+Bu ilişkilerden hangisi olduğunu söyleyin.\n\n
+Cümle-1: {{premise}}\n
+Cümle-2: {{hypothesis}}\n
+Cevap:"
+doc_to_target: "{{['Contradiction', 'Entailment', 'Neutral'].index(label)}}"
 doc_to_choice:
-  - entailment
-  - neutral
-  - contradiction
+  - "Contradiction"
+  - "Entailment"
+  - "Neutral"
+should_decontaminate: true
+doc_to_decontamination_query: premise
 metric_list:
   - metric: acc
     aggregation: mean
