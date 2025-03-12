@@ -1,0 +1,16 @@
+task: metu_complex_reasoning
+dataset_path: metunlp/complex-ales
+dataset_name: default
+test_split: train
+output_type: multiple_choice
+should_decontaminate: true
+doc_to_decontamination_query: "{{question}}"
+doc_to_text: "Q: {{question.strip()}}\nChoices: {{choices}}\nAnswer:"
+doc_to_choice: ["1", "2", "3", "4", "5"]
+doc_to_target: "{{answer_index}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0.0
