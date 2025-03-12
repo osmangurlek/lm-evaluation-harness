@@ -1,0 +1,16 @@
+task: metu_reading_comprehension
+dataset_path: metunlp/reading_comp_mc
+dataset_name: default
+test_split: train
+output_type: multiple_choice
+should_decontaminate: true
+doc_to_decontamination_query: "{{question_about_the_text}}"
+doc_to_text: "Text: {{text.strip()}}\nQuestion: {{question_about_the_text.strip()}}\nChoices: {{choices}}\nAnswer:"
+doc_to_choice: ["1", "2", "3", "4"]
+doc_to_target: "{{answer}}"
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 0
