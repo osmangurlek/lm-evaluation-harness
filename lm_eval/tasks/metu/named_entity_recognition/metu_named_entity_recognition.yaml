@@ -25,16 +25,16 @@ doc_to_text: |
   - TITLE: Kişi unvanları. 
   - WORK_OF_ART: Sanat eserleri, kitaplar, müzik vb. 
   Adlar, tarih ifadeleri, konumlar gibi belirgin bilgiler varlıktır. Fiiller, sıfatlar, zarflar, soyut kavramlar gibi ifadeler varlık değildir.
-  
+
   Verilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. 
   Girdi: {"sentence": "{{sentence}}"}
 
-doc_to_target: "{\"entities\": {{tags}}}"
+doc_to_target: '{"entities": {{tags}}}'
 fewshot_config:
   sampler: first_n
   samples:
     - sentence: "Üç yıl aradan sonra gerçekleştirilen ve Karadeniz, Ege ve Akdeniz’de düzenlenecek olan tatbikata ilişkin Yunanistan'ın Kathimerini gazetesi 'Türk-Yunan: Çetin donanma dengesinin gücü' başlığını kullandı."
-      entities: 
+      entities:
         - { "text": "Üç yıl", "label": "DATE" }
         - { "text": "Karadeniz", "label": "LOC" }
         - { "text": "Ege", "label": "LOC" }
@@ -43,12 +43,12 @@ fewshot_config:
         - { "text": "Kathimerini", "label": "ORG" }
         - { "text": "Türk", "label": "NORP" }
     - sentence: "Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı."
-      entities: 
+      entities:
         - { "text": "Makal", "label": "PERSON" }
         - { "text": "İstanbul", "label": "GPE" }
         - { "text": "Göcek", "label": "GPE" }
     - sentence: "Yeşil-kırmızılılardan 2016’da ayrılıp 3 sezonluk aradan sonra 2019’da geri dönen Sarıca, takımına 2021 yılında Şampiyonlar Ligi’nde, 2023’te de Süper Lig’de iki final oynattı."
-      entities: 
+      entities:
         - { "text": "2016’da", "label": "DATE" }
         - { "text": "3", "label": "CARDINAL" }
         - { "text": "2019’da", "label": "DATE" }
@@ -57,12 +57,12 @@ fewshot_config:
         - { "text": "Şampiyonlar Ligi’nde", "label": "EVENT" }
         - { "text": "2023’te", "label": "DATE" }
         - { "text": "Süper Lig’de", "label": "EVENT" }
-        - { "text": "iki", "label": "CARDINAL" }  
-        
+        - { "text": "iki", "label": "CARDINAL" }
+
 metric_list:
   - metric: f1
     aggregation: mean
     higher_is_better: true
-  - metric: accuracy
+  - metric: exact_match
     aggregation: mean
     higher_is_better: true
