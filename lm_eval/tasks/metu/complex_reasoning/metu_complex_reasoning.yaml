@@ -5,11 +5,7 @@ test_split: train
 output_type: multiple_choice
 should_decontaminate: true
 doc_to_decontamination_query: "{{question}}"
-doc_to_text: "Verdiğim paragrafa göre soruları cevaplayın.\n
-Paragraf: {{narrative}}\n
-Soru: {{question.strip()}}\n
-Seçenekler: {{choices}}\n
-Cevap:"
+doc_to_text: "Verdiğim paragrafa göre soruları cevaplayın.\nParagraf: {{narrative}}\nSoru: {{question.strip()}}\nSeçenekler: {{choices}}\nCevap:"
 doc_to_choice: ["0", "1", "2", "3", "4"]
 doc_to_target: "{{[0, 1, 2, 3, 4].index(answer_index)}}"
 metric_list:

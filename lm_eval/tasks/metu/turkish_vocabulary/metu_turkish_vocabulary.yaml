@@ -3,13 +3,7 @@ dataset_path: metunlp/turkish_vocabulary
 dataset_name: vocabulary
 test_split: train
 output_type: multiple_choice
-doc_to_text: "
-Tür: {{ subset }}\n
-Eğer türü nadir ise 'Verilen kelimenin eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\n
-Eğer türü ödünç ise 'Verilen kelimenin Türkçe kökenli eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\n
-Kelime: {{ word }}\n
-Seçenekler: {{ choices }}\n
-Cevap:"
+doc_to_text: "Tür: {{ subset }}\nEğer türü nadir ise 'Verilen kelimenin eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\nEğer türü ödünç ise 'Verilen kelimenin Türkçe kökenli eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\nKelime: {{ word }}\nSeçenekler: {{ choices }}\nCevap:"
 doc_to_choice: ["0", "1", "2", "3"]
 doc_to_target: "{{ [0, 1, 2, 3].index(answer_index) }}"
 metric_list:
