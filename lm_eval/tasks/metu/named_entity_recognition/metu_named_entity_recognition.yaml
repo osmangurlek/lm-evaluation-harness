@@ -4,30 +4,20 @@ dataset_name: default
 test_split: train
 output_type: generate_until
 doc_to_text: |
-  Aşağıdaki Named Entity Recognition (NER) için etiketlenmesi gereken cümleler vardır. Cümlelerdeki varlıkları belirleyin ve şu kategorilere ayırın: CARDINAL, DATE, EVENT, FAC, GPE, LANGUAGE, LAW, LOC, MONEY, NORP, ORDINAL, ORG, PER, PERCENT, PERSON, PRODUCT, QUANTITY, TIME, TITLE, WORK_OF_ART. Varlıklar, anlamlı bilgiler içeren terimlerdir ve aşağıdaki şekilde tanımlanır: 
-  - CARDINAL: Nicelik veya sıralama belirtmeyen sayısal ifadeler. 
-  - DATE: Belirli bir tarih veya zaman ifadeleri. 
-  - EVENT: Adlandırılmış olaylar veya durumlar. 
-  - FAC: Binalar veya önemli yerler gibi tesisler. 
-  - GPE: Ülke, şehir veya eyalet gibi coğrafi-politik varlıklar. 
-  - LANGUAGE: Adlandırılmış diller. 
-  - LAW: Yasal belgeler, düzenlemeler veya kanunlar. 
-  - LOC: Coğrafi veya fiziksel konumlar (GPE dışındaki). 
-  - MONEY: Parasal değerler. 
-  - NORP: Milletler, dini veya siyasi gruplar. 
-  - ORDINAL: Sıralama veya dereceler. 
-  - ORG: Organizasyonlar veya kurumlar. 
-  - PER: Kişisel unvanlar veya sıfatlar. 
-  - PERSON: Bireylerin isimleri. 
-  - PRODUCT: Üretilen nesneler veya araçlar. 
-  - QUANTITY: Ölçülebilir miktarlar ve birimler. 
-  - TIME: Günün belirli saatleri. 
-  - TITLE: Kişi unvanları. 
-  - WORK_OF_ART: Sanat eserleri, kitaplar, müzik vb. 
-  Adlar, tarih ifadeleri, konumlar gibi belirgin bilgiler varlıktır. Fiiller, sıfatlar, zarflar, soyut kavramlar gibi ifadeler varlık değildir.
-
-  Verilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. 
-  Girdi: {"sentence": "{{sentence}}"}
+  Aşağıdaki Named Entity Recognition (NER) için etiketlenmesi gereken cümleler vardır. 
+  Cümlelerdeki varlıkları belirleyin ve şu kategorilere ayırın: CARDINAL, DATE, EVENT, FAC, GPE, LANGUAGE, LAW, LOC, MONEY, NORP, ORDINAL, ORG, PER, PERCENT, PERSON, PRODUCT, QUANTITY, TIME, TITLE, WORK_OF_ART. 
+  Fiiller, sıfatlar, zarflar, soyut kavramlar gibi ifadeler varlık değildir.\n
+  Örnek:Girdi: Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı.
+  Çıktı:
+  {
+    "entities": [
+      { "text": "Makal", "label": "PERSON" },
+      { "text": "İstanbul", "label": "GPE" },
+      { "text": "Göcek", "label": "GPE" }
+    ]
+  }
+  \nVerilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. \n Girdi: {"sentence": "{{sentence}}"}
+  Sadece formata uygun çıktı ver. Format: {\"entities\": [{\"text\": \"\", \"label\": \"\"}]}
 
 doc_to_target: '{"entities": {{tags}}}'
 fewshot_config:
