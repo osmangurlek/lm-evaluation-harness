@@ -1,0 +1,58 @@
+task: metu_named_entity_recognition
+dataset_path: metunlp/tr_ner
+dataset_name: default
+test_split: train
+output_type: generate_until
+doc_to_text: |
+  Aşağıdaki Named Entity Recognition (NER) için etiketlenmesi gereken cümleler vardır. 
+  Cümlelerdeki varlıkları belirleyin ve şu kategorilere ayırın: CARDINAL, DATE, EVENT, FAC, GPE, LANGUAGE, LAW, LOC, MONEY, NORP, ORDINAL, ORG, PER, PERCENT, PERSON, PRODUCT, QUANTITY, TIME, TITLE, WORK_OF_ART. 
+  Fiiller, sıfatlar, zarflar, soyut kavramlar gibi ifadeler varlık değildir.\n
+  Örnek:Girdi: Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı.
+  Çıktı:
+  {
+    "entities": [
+      { "text": "Makal", "label": "PERSON" },
+      { "text": "İstanbul", "label": "GPE" },
+      { "text": "Göcek", "label": "GPE" }
+    ]
+  }
+  \nVerilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. \nGirdi:  Girdi: {"sentence": "{{sentence}}"}
+  Sadece formata uygun çıktı ver. Format: {\"entities\": [{\"text\": \"\", \"label\": \"\"}]}
+
+doc_to_target: '{"entities": {{tags}}}'
+fewshot_config:
+  sampler: first_n
+  samples:
+    - sentence: "Üç yıl aradan sonra gerçekleştirilen ve Karadeniz, Ege ve Akdeniz’de düzenlenecek olan tatbikata ilişkin Yunanistan'ın Kathimerini gazetesi 'Türk-Yunan: Çetin donanma dengesinin gücü' başlığını kullandı."
+      entities:
+        - { "text": "Üç yıl", "label": "DATE" }
+        - { "text": "Karadeniz", "label": "LOC" }
+        - { "text": "Ege", "label": "LOC" }
+        - { "text": "Akdeniz", "label": "LOC" }
+        - { "text": "Yunanistan", "label": "GPE" }
+        - { "text": "Kathimerini", "label": "ORG" }
+        - { "text": "Türk", "label": "NORP" }
+    - sentence: "Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı."
+      entities:
+        - { "text": "Makal", "label": "PERSON" }
+        - { "text": "İstanbul", "label": "GPE" }
+        - { "text": "Göcek", "label": "GPE" }
+    - sentence: "Yeşil-kırmızılılardan 2016’da ayrılıp 3 sezonluk aradan sonra 2019’da geri dönen Sarıca, takımına 2021 yılında Şampiyonlar Ligi’nde, 2023’te de Süper Lig’de iki final oynattı."
+      entities:
+        - { "text": "2016’da", "label": "DATE" }
+        - { "text": "3", "label": "CARDINAL" }
+        - { "text": "2019’da", "label": "DATE" }
+        - { "text": "Sarıca", "label": "PERSON" }
+        - { "text": "2021", "label": "DATE" }
+        - { "text": "Şampiyonlar Ligi’nde", "label": "EVENT" }
+        - { "text": "2023’te", "label": "DATE" }
+        - { "text": "Süper Lig’de", "label": "EVENT" }
+        - { "text": "iki", "label": "CARDINAL" }
+
+metric_list:
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
