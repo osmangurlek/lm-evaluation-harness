@@ -1,7 +1,6 @@
 group: metu
 task:
   - metu_nli
-  - metu_topic_detection
   - metu_commonsense_reasoning
   - metu_complex_reasoning
   - metummlu_din_kültürü
