@@ -7,3 +7,5 @@ task:
   - metu_reading_comprehension
   - metu_turkish_general_knowledge
   - metu_turkish_vocabulary
+  - metu_named_entity_recognition
+  - metu_sentiment_analysis_tr
