@@ -1,4 +1,4 @@
-task: metu_topic_detection_kolay
+task: metu_topic_detection_tr
 dataset_path: metunlp/topic_detection_tr
 dataset_name: default
 test_split: train
