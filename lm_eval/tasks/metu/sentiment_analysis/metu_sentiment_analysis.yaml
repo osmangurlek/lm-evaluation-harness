@@ -1,0 +1,9 @@
+task: metu_sentiment_analysis_tr
+dataset_path: metunlp/sentiment_analysis_tr
+output_type: multiple_choice
+test_split: train
+doc_to_text: "Aşağıdaki cümlenin içerdiği sentiment nedir?\nCümle: {{sentence}}\nCevap:"
+doc_to_target: "{{sentiment}}"
+doc_to_choice: ["neutral", "negative", "positive"]
+metric_list:
+  - metric: acc
