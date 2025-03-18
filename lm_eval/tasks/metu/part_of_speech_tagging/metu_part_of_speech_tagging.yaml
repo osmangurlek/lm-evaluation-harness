@@ -1,25 +1,45 @@
-task: metu_named_entity_recognition
-dataset_path: metunlp/tr_ner
+task: metu_part_of_speech_tagging
+dataset_path: metunlp/tr_pos
 dataset_name: default
 test_split: train
 output_type: generate_until
+process_docs: !function utils.process_docs # Correctly processes the dataset in bulk
 doc_to_text: |
-  Aşağıdaki Named Entity Recognition (NER) için etiketlenmesi gereken cümleler vardır. 
-  Cümlelerdeki varlıkları belirleyin ve şu kategorilere ayırın: CARDINAL, DATE, EVENT, FAC, GPE, LANGUAGE, LAW, LOC, MONEY, NORP, ORDINAL, ORG, PER, PERCENT, PERSON, PRODUCT, QUANTITY, TIME, TITLE, WORK_OF_ART. 
-  Fiiller, sıfatlar, zarflar, soyut kavramlar gibi ifadeler varlık değildir.\n
-  Örnek:Girdi: Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı.
-  Çıktı:
+  Bir dilbilimci gibi hareket ederek, herhangi bir düzeltme veya değişiklik yapmadan verilen cümlenin dilbilgisel analizini yapın. 
+  Her kelimenin POS (Part-of-Speech) etiketini belirleyin ve sonuçları belirtilen formatta döndürün. 
+  Kullanılabilecek etiketler ve açıklamaları: 
+  ADP: Edatlar (ör. ile, için), 
+  ADV: Zarflar (ör. en), 
+  AUX: Yardımcı fiiller (ör. olan), 
+  CCONJ: Eş bağlaçlar (ör. ve, ama), 
+  DET: Belirleyiciler (ör. bu, bir), 
+  INTJ: Ünlemler (ör. ah, hey), 
+  NOUN: İsimler (ör. ev, kitap), 
+  NUM: Sayılar (ör. bir, iki), 
+  PRON: Zamirler (ör. o, biz), 
+  PROPN: Özel isimler (ör. Ahmet, İstanbul), 
+  PUNCT: Noktalama işaretleri (ör. ., ?, !), 
+  SCONJ: Alt bağlaçlar (ör. çünkü, eğer), 
+  VERB: Fiiller (ör. koşmak, yazmak).
+  \nVerilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. \n
+  Girdi: {"sentence": "{{sentence}}"}
+  Sadece formata uygun çıktı ver. 
+  Örnek Çıktı:
   {
-    "entities": [
-      { "text": "Makal", "label": "PERSON" },
-      { "text": "İstanbul", "label": "GPE" },
-      { "text": "Göcek", "label": "GPE" }
+    "tokens": [
+      {"text": "TEXT", "pos": "POS"},
+      {"text": "TEXT", "pos": "POS"}
     ]
   }
-  \nVerilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. \nGirdi:  Girdi: {"sentence": "{{sentence}}"}
-  Sadece formata uygun çıktı ver. Format: {\"entities\": [{\"text\": \"\", \"label\": \"\"}]}
 
-doc_to_target: '{"entities": {{tags}}}'
+doc_to_target: |
+  {
+    "tokens": [
+      {% for token in tokens -%}
+        {"text": "{{ token.text }}", "pos": "{{ token.pos }}"}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
 fewshot_config:
   sampler: first_n
   samples:
