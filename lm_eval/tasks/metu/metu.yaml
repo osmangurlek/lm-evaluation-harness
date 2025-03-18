@@ -1,36 +1,11 @@
 group: metu
 task:
   - metu_nli
-  - metu_topic_detection
   - metu_commonsense_reasoning
   - metu_complex_reasoning
-  - metu_math_tr
-  - metummlu_din_kültürü
-  - metummlu_ekonometri
-  - metummlu_hukuk
-  - metummlu_iktisat
-  - metummlu_işletme
-  - metummlu_istatistik
-  - metummlu_kamu_yönetimi
-  - metummlu_lise_seviyesi_biyoloji
-  - metummlu_lise_seviyesi_fizik
-  - metummlu_lise_seviyesi_matematik
-  - metummlu_lise_seviyesi_tarih
-  - metummlu_lise_seviyesi_coğrafya
-  - metummlu_lise_seviyesi_felsefe
-  - metummlu_lise_seviyesi_kimya
-  - metummlu_lise_seviyesi_psikoloji
-  - metummlu_lise_seviyesi_sosyoloji
-  - metummlu_mantık
-  - metummlu_muhasebe
-  - metummlu_tıp
-  - metummlu_uluslararası_ilişkiler
-  - metummlu_üniversite_seviyesi_biyoloji
-  - metummlu_üniversite_seviyesi_fizik
-  - metummlu_üniversite_seviyesi_kimya
-  - metummlu_üniversite_seviyesi_matematik
+  - metummlu
   - metu_reading_comprehension
   - metu_turkish_general_knowledge
   - metu_turkish_vocabulary
-  - metu_topic_detection_kolay
-  - metu_topic_detection_zor
+  - metu_named_entity_recognition
+  - metu_sentiment_analysis_tr
