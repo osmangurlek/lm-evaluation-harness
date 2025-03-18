@@ -3,12 +3,7 @@ task:
   - metu_nli
   - metu_commonsense_reasoning
   - metu_complex_reasoning
-  - metummlu_din_kültürü
-  - metummlu_hukuk
-  - metummlu_kamu_yönetimi
-  - metummlu_lise_seviyesi_biyoloji
+  - metummlu
   - metu_reading_comprehension
   - metu_turkish_general_knowledge
   - metu_turkish_vocabulary
-  - metu_topic_detection_kolay
-  - metu_topic_detection_zor
