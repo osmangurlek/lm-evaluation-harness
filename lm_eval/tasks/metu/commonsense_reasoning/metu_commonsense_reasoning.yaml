@@ -5,7 +5,7 @@ test_split: train
 output_type: multiple_choice
 doc_to_text: "Eğer etiket effect ise 'seçeneklerden hangisi verilen önermenin bir sonucu veya etkisi olabilir?' sorusuna cevap verin.\nEğer etiket cause ise 'Seçeneklerden hangisi verilen önermenin bir neden veya sebebi olabilir?' sorusuna cevap verin.\nHerhangi bir açıklama yapma sadece seçeneği ver.\nÖnerme: {{text}}\nEtiket: {{label}}\n1: {{choice1}}\n2: {{choice2}}\nCevap:"
 doc_to_choice: ["1", "2"]
-doc_to_target: "{{[1, 2].index(answer_index)}}"
+doc_to_target: "{{[1, 2].index(answer)}}"
 metric_list:
   - metric: acc
     aggregation: mean

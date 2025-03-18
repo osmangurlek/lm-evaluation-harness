@@ -5,7 +5,7 @@ test_split: train
 output_type: multiple_choice
 doc_to_text: "Tür: {{ subset }}\nEğer türü nadir ise 'Verilen kelimenin eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\nEğer türü ödünç ise 'Verilen kelimenin Türkçe kökenli eş anlamlısı aşağıdakilerden hangisidir?' sorusuna cevap ver.\nKelime: {{ word }}\nSeçenekler: {{ choices }}\nCevap:"
 doc_to_choice: ["0", "1", "2", "3"]
-doc_to_target: "{{ [0, 1, 2, 3].index(answer_index) }}"
+doc_to_target: "{{ [0, 1, 2, 3].index(answer) }}"
 metric_list:
   - metric: acc
     aggregation: mean
