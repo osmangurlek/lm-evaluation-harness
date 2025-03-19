@@ -1,0 +1,81 @@
+task: metu_part_of_speech_tagging
+dataset_path: metunlp/tr_pos
+dataset_name: default
+dataset_kwargs:
+  data_files: "pos_by_sentence_cleaned.csv"
+test_split: train
+output_type: generate_until
+process_docs: !function utils.process_docs # Correctly processes the dataset in bulk
+doc_to_text: |
+  Bir dilbilimci gibi hareket ederek, herhangi bir düzeltme veya değişiklik yapmadan verilen cümlenin dilbilgisel analizini yapın. 
+  Her kelimenin POS (Part-of-Speech) etiketini belirleyin ve sonuçları belirtilen formatta döndürün. 
+  Kullanılabilecek etiketler ve açıklamaları: 
+  ADP: Edatlar (ör. ile, için), 
+  ADV: Zarflar (ör. en), 
+  AUX: Yardımcı fiiller (ör. olan), 
+  CCONJ: Eş bağlaçlar (ör. ve, ama), 
+  DET: Belirleyiciler (ör. bu, bir), 
+  INTJ: Ünlemler (ör. ah, hey), 
+  NOUN: İsimler (ör. ev, kitap), 
+  NUM: Sayılar (ör. bir, iki), 
+  PRON: Zamirler (ör. o, biz), 
+  PROPN: Özel isimler (ör. Ahmet, İstanbul), 
+  PUNCT: Noktalama işaretleri (ör. ., ?, !), 
+  SCONJ: Alt bağlaçlar (ör. çünkü, eğer), 
+  VERB: Fiiller (ör. koşmak, yazmak).
+  \nVerilen cümledeki varlıkları JSON formatında yukarıdaki tanımlamalara uygun olarak belirleyin. \n
+  Girdi: {"sentence": "{{sentence}}"}
+  Sadece formata uygun çıktı ver. 
+  Örnek Çıktı:
+  {
+    "tokens": [
+      {"text": "Kelime1", "pos": "POS1"},
+      {"text": "Kelime2", "pos": "POS2"},
+      {"text": "Kelime3", "pos": "POS3"}
+    ]
+  }
+
+doc_to_target: |
+  {
+    "tokens": [
+      {% for token in tokens -%}
+        {"text": "{{ token.text }}", "pos": "{{ token.pos }}"}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+# fewshot_config:
+#   sampler: first_n
+#   samples:
+#     - sentence: "Üç yıl aradan sonra gerçekleştirilen ve Karadeniz, Ege ve Akdeniz’de düzenlenecek olan tatbikata ilişkin Yunanistan'ın Kathimerini gazetesi 'Türk-Yunan: Çetin donanma dengesinin gücü' başlığını kullandı."
+#       entities:
+#         - { "text": "Üç yıl", "label": "DATE" }
+#         - { "text": "Karadeniz", "label": "LOC" }
+#         - { "text": "Ege", "label": "LOC" }
+#         - { "text": "Akdeniz", "label": "LOC" }
+#         - { "text": "Yunanistan", "label": "GPE" }
+#         - { "text": "Kathimerini", "label": "ORG" }
+#         - { "text": "Türk", "label": "NORP" }
+#     - sentence: "Evlendikten sonra oyunculuğu bırakan Makal, geçen yıl eşi ve oğluyla beraber İstanbul’dan Göcek’e taşınmıştı."
+#       entities:
+#         - { "text": "Makal", "label": "PERSON" }
+#         - { "text": "İstanbul", "label": "GPE" }
+#         - { "text": "Göcek", "label": "GPE" }
+#     - sentence: "Yeşil-kırmızılılardan 2016’da ayrılıp 3 sezonluk aradan sonra 2019’da geri dönen Sarıca, takımına 2021 yılında Şampiyonlar Ligi’nde, 2023’te de Süper Lig’de iki final oynattı."
+#       entities:
+#         - { "text": "2016’da", "label": "DATE" }
+#         - { "text": "3", "label": "CARDINAL" }
+#         - { "text": "2019’da", "label": "DATE" }
+#         - { "text": "Sarıca", "label": "PERSON" }
+#         - { "text": "2021", "label": "DATE" }
+#         - { "text": "Şampiyonlar Ligi’nde", "label": "EVENT" }
+#         - { "text": "2023’te", "label": "DATE" }
+#         - { "text": "Süper Lig’de", "label": "EVENT" }
+#         - { "text": "iki", "label": "CARDINAL" }
+
+metric_list:
+  - metric: f1
+    aggregation: mean
+    higher_is_better: true
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
