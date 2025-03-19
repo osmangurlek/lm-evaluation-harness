@@ -9,3 +9,5 @@ task:
   - metu_turkish_vocabulary
   - metu_named_entity_recognition
   - metu_sentiment_analysis_tr
+  - metu_topic_detection_tr
+  - metu_part_of_speech_tagging
