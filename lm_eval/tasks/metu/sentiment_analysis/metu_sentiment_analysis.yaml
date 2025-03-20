@@ -7,7 +7,7 @@ doc_to_text: |
   Cümle: {{sentence}}
   Cevap:
 doc_to_target: "{{sentiment}}"
-doc_to_choice: ["neutral", "negative", "positive"]
+doc_to_choice: ["Neutral", "Negative", "Positive"]
 metric_list:
   - metric: acc
     aggregation: mean
