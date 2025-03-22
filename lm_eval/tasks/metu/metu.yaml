@@ -7,7 +7,5 @@ task:
   - reading_comprehension_tr
   - turkish_general_knowledge
   - turkish_vocabulary
-  - named_entity_recognition_tr
   - sentiment_analysis_tr
   - topic_detection_tr
-  - part_of_speech_tagging_tr
