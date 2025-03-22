@@ -1,4 +1,4 @@
-task: metu_complex_reasoning
+task: complex_reasoning_tr
 dataset_path: metunlp/complex-ales
 dataset_name: default
 test_split: train

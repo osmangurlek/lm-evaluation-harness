@@ -50,5 +50,5 @@ metric_list:
 num_fewshot: 3
 output_type: generate_until
 repeats: 1
-task: metu_math_tr
+task: math_tr
 test_split: train

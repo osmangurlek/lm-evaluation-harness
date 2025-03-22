@@ -1,4 +1,4 @@
-task: metu_reading_comprehension
+task: reading_comprehension_tr
 dataset_path: metunlp/reading_comp_mc
 dataset_name: default
 test_split: train

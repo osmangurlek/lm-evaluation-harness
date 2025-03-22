@@ -1,4 +1,4 @@
-task: metu_sentiment_analysis_tr
+task: sentiment_analysis_tr
 dataset_path: metunlp/sentiment_analysis_tr
 output_type: multiple_choice
 test_split: train

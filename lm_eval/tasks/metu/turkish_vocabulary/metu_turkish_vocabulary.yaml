@@ -1,4 +1,4 @@
-task: metu_turkish_vocabulary
+task: turkish_vocabulary
 dataset_path: metunlp/turkish_vocabulary
 dataset_name: vocabulary
 test_split: train

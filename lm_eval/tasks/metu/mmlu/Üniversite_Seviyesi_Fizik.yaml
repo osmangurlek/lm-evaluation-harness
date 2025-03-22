@@ -1,3 +1,3 @@
 include: _metummlu_default_yaml
-task: metummlu_üniversite_seviyesi_fizik
+task: mmlu_üniversite_seviyesi_fizik
 dataset_name: Üniversite_Seviyesi_Fizik

@@ -1,4 +1,4 @@
-task: metu_named_entity_recognition
+task: named_entity_recognition_tr
 dataset_path: metunlp/tr_ner
 dataset_name: default
 test_split: train
@@ -50,9 +50,6 @@ fewshot_config:
         - { "text": "iki", "label": "CARDINAL" }
 
 metric_list:
-  - metric: f1
-    aggregation: mean
-    higher_is_better: true
   - metric: exact_match
     aggregation: mean
     higher_is_better: true

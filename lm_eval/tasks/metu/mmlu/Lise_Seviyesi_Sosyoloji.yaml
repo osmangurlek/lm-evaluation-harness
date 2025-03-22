@@ -1,3 +1,3 @@
 include: _metummlu_default_yaml
-task: metummlu_lise_seviyesi_sosyoloji
+task: mmlu_lise_seviyesi_sosyoloji
 dataset_name: Lise_Seviyesi_Sosyoloji

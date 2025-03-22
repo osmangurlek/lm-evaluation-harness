@@ -1,13 +1,13 @@
 group: metu
 task:
-  - metu_nli
-  - metu_commonsense_reasoning
-  - metu_complex_reasoning
-  - metummlu
-  - metu_reading_comprehension
-  - metu_turkish_general_knowledge
-  - metu_turkish_vocabulary
-  - metu_named_entity_recognition
-  - metu_sentiment_analysis_tr
-  - metu_topic_detection_tr
-  - metu_part_of_speech_tagging
+  - nli_tr
+  - commonsense_reasoning_tr
+  - complex_reasoning_tr
+  - mmlu_tr
+  - reading_comprehension_tr
+  - turkish_general_knowledge
+  - turkish_vocabulary
+  - named_entity_recognition_tr
+  - sentiment_analysis_tr
+  - topic_detection_tr
+  - part_of_speech_tagging_tr

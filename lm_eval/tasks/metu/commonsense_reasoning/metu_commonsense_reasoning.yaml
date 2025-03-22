@@ -1,4 +1,4 @@
-task: metu_commonsense_reasoning
+task: commonsense_reasoning_tr
 dataset_path: metunlp/commonsense
 dataset_name: default
 test_split: train

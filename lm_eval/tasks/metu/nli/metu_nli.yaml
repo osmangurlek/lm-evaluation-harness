@@ -1,4 +1,4 @@
-task: metu_nli
+task: nli_tr
 dataset_path: metunlp/nli_tr
 dataset_name: default
 output_type: multiple_choice

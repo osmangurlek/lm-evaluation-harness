@@ -1,4 +1,4 @@
-task: metu_turkish_general_knowledge
+task: turkish_general_knowledge
 dataset_path: metunlp/turkish_general_knowledge
 dataset_name: default
 test_split: train

@@ -1,4 +1,4 @@
-tag: metummlu
+tag: mmlu_tr
 task: null
 dataset_path: metunlp/mmlu_tr
 dataset_name: MetuMMLU
@@ -9,9 +9,6 @@ doc_to_choice: ["0", "1", "2", "3", "4"]
 doc_to_target: "{{[0, 1, 2, 3, 4].index(answer)}}"
 metric_list:
   - metric: acc
-    aggregation: mean
-    higher_is_better: true
-  - metric: acc_norm
     aggregation: mean
     higher_is_better: true
 metadata:

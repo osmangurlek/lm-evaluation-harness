@@ -1,3 +1,3 @@
 include: _metummlu_default_yaml
-task: metummlu_tıp
+task: mmlu_tıp
 dataset_name: Tıp
